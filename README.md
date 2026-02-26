@@ -1,8 +1,6 @@
-# macOS Tiling WM
+# .glide
 
-Tiling window management on macOS with vim motions and smooth animations. No SIP disable required.
-
-Built with [Glide](https://github.com/glide-wm/glide) — a tiling window manager inspired by i3, Sway, and Hyprland.
+Personal [Glide](https://github.com/glide-wm/glide) config — Hyprland-inspired tiling for macOS with vim motions and smooth animations. No SIP disable required.
 
 ## Install
 

@@ -4,37 +4,23 @@
 
 [settings]
 
-# ── Animations ─────────────────────────────────────────────
 animate = true
-
-# ── Space Management ───────────────────────────────────────
-# Spaces start unmanaged — Alt+Z to activate
 default_disable = true
-
-# ── Mouse ──────────────────────────────────────────────────
 focus_follows_mouse = true
 mouse_follows_focus = true
 mouse_hides_on_focus = true
-
-# ── Gaps (Hyprland-style) ─────────────────────────────────
 outer_gap = 10
 inner_gap = 10
 
-# ── Group Bars ─────────────────────────────────────────────
 group_bars.enable = true
 group_bars.thickness = 4
 group_bars.horizontal_placement = "top"
 group_bars.vertical_placement = "right"
 
-# ── Status Icon ────────────────────────────────────────────
 status_icon.enable = true
 
-# ── Keys ───────────────────────────────────────────────────
-default_keys = false
-
-[settings.experimental]
-status_icon.space_index = true
-status_icon.color = true
+# Use default keys as base, then override below
+default_keys = true
 
 [keys]
 
