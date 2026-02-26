@@ -2,28 +2,21 @@
 
 set -e
 
-echo "Installing Hyprland-like macOS setup..."
+echo "Installing Hyprland-like macOS tiling setup (Glide)..."
 
-# Install dependencies
-brew install koekeishiya/formulae/yabai koekeishiya/formulae/skhd FelixKratz/formulae/borders
+# Install Glide
+brew install glide
 
-# Copy configs
-mkdir -p ~/.config/yabai ~/.config/skhd ~/.config/borders
+# Copy config
+mkdir -p ~/.config/glide
+cp glide/glide.toml ~/.config/glide/glide.toml
 
-cp yabai/yabairc ~/.config/yabai/yabairc
-cp skhd/skhdrc ~/.config/skhd/skhdrc
-cp borders/bordersrc ~/.config/borders/bordersrc
-
-chmod +x ~/.config/yabai/yabairc ~/.config/borders/bordersrc
-
-# Start services
-yabai --start-service
-skhd --start-service
-brew services start felixkratz/formulae/borders
+# Start Glide and install as login service
+glide launch
+glide service install
 
 echo ""
-echo "Done! Grant Accessibility permissions to yabai and skhd:"
+echo "Done! Grant Accessibility permissions to Glide:"
 echo "  System Settings > Privacy & Security > Accessibility"
 echo ""
-echo "For animations, disable SIP and run:"
-echo "  echo \"\$(whoami) ALL=(root) NOPASSWD: sha256:\$(shasum -a 256 \$(which yabai) | cut -d \" \" -f 1) \$(which yabai) --load-sa\" | sudo tee /private/etc/sudoers.d/yabai"
+echo "Then press Alt+Z on any space to activate tiling."
