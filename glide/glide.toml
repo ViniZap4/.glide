@@ -1,83 +1,88 @@
 # ============================================================
-# Hyprland-style Glide config (migrated from yabai + skhd)
+# .glide — Hyprland-inspired tiling for macOS
 # ============================================================
 
 [settings]
 
-# Enable smooth animations
+# ── Animations ─────────────────────────────────────────────
 animate = true
 
-# Spaces are disabled by default — Alt+Z to activate per space
+# ── Space Management ───────────────────────────────────────
+# Spaces start unmanaged — Alt+Z to activate
 default_disable = true
 
-# Mouse behavior
+# ── Mouse ──────────────────────────────────────────────────
 focus_follows_mouse = true
 mouse_follows_focus = true
 mouse_hides_on_focus = true
 
-# Gaps (matching yabai: 8px)
-outer_gap = 8
-inner_gap = 8
+# ── Gaps (Hyprland-style) ─────────────────────────────────
+outer_gap = 10
+inner_gap = 10
 
-# Group bars (tabbed/stacked containers)
+# ── Group Bars ─────────────────────────────────────────────
 group_bars.enable = true
-group_bars.thickness = 6
+group_bars.thickness = 4
 group_bars.horizontal_placement = "top"
 group_bars.vertical_placement = "right"
 
-# Status icon
+# ── Status Icon ────────────────────────────────────────────
 status_icon.enable = true
 
-# Disable default keys — we define everything below
+# ── Keys ───────────────────────────────────────────────────
 default_keys = false
+
+[settings.experimental]
+status_icon.space_index = true
+status_icon.color = true
 
 [keys]
 
-# ── Focus windows (vim motions) ───────────────────────────────
+# ── Focus windows (vim motions) ────────────────────────────
 "Alt + H" = { move_focus = "left" }
 "Alt + J" = { move_focus = "down" }
 "Alt + K" = { move_focus = "up" }
 "Alt + L" = { move_focus = "right" }
 
-# ── Move windows ──────────────────────────────────────────────
+# ── Move windows ───────────────────────────────────────────
 "Alt + Shift + H" = { move_node = "left" }
 "Alt + Shift + J" = { move_node = "down" }
 "Alt + Shift + K" = { move_node = "up" }
 "Alt + Shift + L" = { move_node = "right" }
 
-# ── Resize windows ───────────────────────────────────────────
+# ── Resize windows ────────────────────────────────────────
 "Alt + Ctrl + H" = { resize = { direction = "left", percent = 5 } }
 "Alt + Ctrl + J" = { resize = { direction = "down", percent = 5 } }
 "Alt + Ctrl + K" = { resize = { direction = "up", percent = 5 } }
 "Alt + Ctrl + L" = { resize = { direction = "right", percent = 5 } }
 
-# ── Split direction ───────────────────────────────────────────
+# ── Split direction ────────────────────────────────────────
 "Alt + Backslash" = { split = "horizontal" }
 "Alt + Equal" = { split = "vertical" }
 
-# ── Grouping (tabbed/stacked) ────────────────────────────────
+# ── Grouping (tabbed/stacked) ─────────────────────────────
 "Alt + T" = { group = "horizontal" }
 "Alt + S" = { group = "vertical" }
 "Alt + E" = "ungroup"
 
-# ── Tree navigation ──────────────────────────────────────────
+# ── Tree navigation ───────────────────────────────────────
 "Alt + A" = "ascend"
 "Alt + D" = "descend"
 
-# ── Toggle modes ─────────────────────────────────────────────
+# ── Toggle modes ───────────────────────────────────────────
 "Alt + Shift + Space" = "toggle_window_floating"
 "Alt + Space" = "toggle_focus_floating"
 "Alt + F" = "toggle_fullscreen"
 
-# ── Cycle layouts ────────────────────────────────────────────
+# ── Cycle layouts ──────────────────────────────────────────
 "Alt + N" = "next_layout"
 "Alt + P" = "prev_layout"
 
-# ── Space activation ─────────────────────────────────────────
+# ── Space activation ──────────────────────────────────────
 "Alt + Z" = "toggle_space_activated"
 
-# ── Save state & exit ────────────────────────────────────────
+# ── Save state & exit ─────────────────────────────────────
 "Alt + Shift + E" = "save_and_exit"
 
-# ── Debug ─────────────────────────────────────────────────────
+# ── Debug ──────────────────────────────────────────────────
 "Alt + Shift + D" = "debug"

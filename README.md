@@ -7,8 +7,8 @@ Built with [Glide](https://github.com/glide-wm/glide) — a tiling window manage
 ## Install
 
 ```bash
-git clone https://github.com/ViniZap4/macos-tiling-wm.git
-cd macos-tiling-wm
+git clone https://github.com/ViniZap4/.glide.git
+cd .glide
 ./install.sh
 ```
 
