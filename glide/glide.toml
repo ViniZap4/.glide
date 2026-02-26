@@ -49,7 +49,7 @@ default_keys = true
 # ── Grouping (tabbed/stacked) ─────────────────────────────
 "Alt + T" = { group = "horizontal" }
 "Alt + S" = { group = "vertical" }
-"Alt + E" = "ungroup"
+"Alt + U" = "ungroup"
 
 # ── Tree navigation ───────────────────────────────────────
 "Alt + A" = "ascend"

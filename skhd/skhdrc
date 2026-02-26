@@ -1,0 +1,12 @@
+# ============================================================
+# App launcher keybindings (Hyprland-style)
+# Window management handled by Glide — this is just for exec
+# ============================================================
+
+# ── Launch apps ────────────────────────────────────────────
+alt - return : open -a "iTerm"
+alt - b      : open -a "Dia"
+alt - e      : open -a "Finder"
+
+# ── Close window (like Hyprland killactive) ────────────────
+alt - q : osascript -e 'tell application "System Events" to perform action "AXPress" of (first button whose subrole is "AXCloseButton") of (first window of (first application process whose frontmost is true))'

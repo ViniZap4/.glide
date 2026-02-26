@@ -10,7 +10,7 @@ cd .glide
 ./install.sh
 ```
 
-Then grant **Accessibility** permissions to `Glide`:
+Then grant **Accessibility** permissions to `Glide` and `skhd`:
 
 **System Settings > Privacy & Security > Accessibility**
 
@@ -47,7 +47,7 @@ All keybindings use `alt` (option) as the modifier.
 | `alt + =` | Split vertical |
 | `alt + t` | Group tabbed |
 | `alt + s` | Group stacked |
-| `alt + e` | Ungroup |
+| `alt + u` | Ungroup |
 
 ### Tree Navigation
 
@@ -57,6 +57,15 @@ All keybindings use `alt` (option) as the modifier.
 | `alt + d` | Descend (select child) |
 | `alt + n` | Next layout |
 | `alt + p` | Previous layout |
+
+### App Launcher
+
+| Keys | Action |
+|------|--------|
+| `alt + return` | Open terminal (iTerm) |
+| `alt + b` | Open browser (Dia) |
+| `alt + e` | Open Finder |
+| `alt + q` | Close window |
 
 ### Other
 
@@ -77,5 +86,6 @@ All keybindings use `alt` (option) as the modifier.
 
 ```
 glide/glide.toml    # Window manager config (layout, gaps, animations, keybindings)
+skhd/skhdrc         # App launcher keybindings (terminal, browser, finder)
 install.sh          # One-command setup
 ```
