@@ -1,0 +1,13 @@
+name: glide-config
+description: Glide WM config — Hyprland-inspired tiling for macOS with skhd keybindings
+platforms:
+  - macos
+links:
+  - source: glide/glide.toml
+    target: ~/.config/glide/glide.toml
+  - source: skhd/skhdrc
+    target: ~/.config/skhd/skhdrc
+dependencies:
+  brew:
+    - glide
+    - koekeishiya/formulae/skhd
