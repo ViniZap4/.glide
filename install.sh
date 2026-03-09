@@ -1,27 +1,42 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-set -e
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo "Installing Hyprland-like macOS tiling setup..."
+echo "→ Installing Glide tiling WM for macOS..."
 
-# Install dependencies
-brew install glide koekeishiya/formulae/skhd
+# ── Install dependencies ─────────────────────────────────────────
+brew install glide koekeishiya/formulae/skhd 2>/dev/null || true
 
-# Copy configs
+# ── Create config directories ────────────────────────────────────
 mkdir -p ~/.config/glide ~/.config/skhd
-cp glide/glide.toml ~/.config/glide/glide.toml
-cp skhd/skhdrc ~/.config/skhd/skhdrc
 
-# Start Glide and install as login service
-glide launch
-glide service install
+# ── Create symlinks ──────────────────────────────────────────────
+for pair in "glide/glide.toml:$HOME/.config/glide/glide.toml" "skhd/skhdrc:$HOME/.config/skhd/skhdrc"; do
+  SOURCE="${pair%%:*}"
+  TARGET="${pair##*:}"
 
-# Start skhd (app launcher keybindings)
-skhd --install-service
-skhd --start-service
+  if [[ -f "$TARGET" && ! -L "$TARGET" ]]; then
+    BACKUP="${TARGET}.backup.$(date +%Y%m%d%H%M%S)"
+    echo "→ Backing up existing $TARGET to $BACKUP"
+    mv "$TARGET" "$BACKUP"
+  elif [[ -L "$TARGET" ]]; then
+    rm "$TARGET"
+  fi
+
+  ln -s "${SCRIPT_DIR}/$SOURCE" "$TARGET"
+  echo "✔ Linked $SOURCE → $TARGET"
+done
+
+# ── Start services ───────────────────────────────────────────────
+glide launch 2>/dev/null || true
+glide service install 2>/dev/null || true
+
+skhd --install-service 2>/dev/null || true
+skhd --start-service 2>/dev/null || true
 
 echo ""
-echo "Done! Grant Accessibility permissions to Glide and skhd:"
+echo "→ Grant Accessibility permissions to Glide and skhd:"
 echo "  System Settings > Privacy & Security > Accessibility"
 echo ""
-echo "Then press Alt+Z on any space to activate tiling."
+echo "→ Press Alt+Z on any space to activate tiling."
